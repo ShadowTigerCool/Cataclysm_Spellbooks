@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-@AutoSpellConfig
 public class HemorrhagingImpactSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "hemorrhaging_impact");
 

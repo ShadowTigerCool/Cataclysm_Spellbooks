@@ -1,6 +1,5 @@
 package net.acetheeldritchking.cataclysm_spellbooks.registries;
 
-import io.redspace.ironsspellbooks.effect.SummonTimer;
 import net.acetheeldritchking.cataclysm_spellbooks.CataclysmSpellbooks;
 import net.acetheeldritchking.cataclysm_spellbooks.effects.potion.*;
 import net.minecraft.world.effect.MobEffect;

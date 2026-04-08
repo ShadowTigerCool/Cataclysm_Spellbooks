@@ -2,14 +2,12 @@ package net.acetheeldritchking.cataclysm_spellbooks.registries;
 
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
-import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.cataclysm_spellbooks.CataclysmSpellbooks;
 import net.acetheeldritchking.cataclysm_spellbooks.util.CSTags;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -35,9 +33,9 @@ public class CSSchoolRegistry extends SchoolRegistry {
                     ABYSSAL_RESOURCE,
                     CSTags.ABYSSAL_FOCUS,
                     Component.translatable("school.cataclysm_spellbooks.abyssal").withStyle(Style.EMPTY.withColor(0x36156c)),
-                    LazyOptional.of(CSAttributeRegistry.ABYSSAL_MAGIC_POWER::get),
-                    LazyOptional.of(CSAttributeRegistry.ABYSSAL_MAGIC_RESIST::get),
-                    LazyOptional.of(SoundRegistry.EVOCATION_CAST::get),
+                    CSAttributeRegistry.ABYSSAL_MAGIC_POWER::get,
+                    CSAttributeRegistry.ABYSSAL_MAGIC_RESIST::get,
+                    SoundRegistry.EVOCATION_CAST::get,
                     CSDamageTypes.ABYSSAL_MAGIC
             ));
 
@@ -49,9 +47,9 @@ public class CSSchoolRegistry extends SchoolRegistry {
                     TECHNOMANCY_RESOURCE,
                     CSTags.TECHNOMANCY_FOCUS,
                     Component.translatable("school.cataclysm_spellbooks.technomancy").withStyle(Style.EMPTY.withColor(0xb3bec5)),
-                    LazyOptional.of(CSAttributeRegistry.TECHNOMANCY_MAGIC_POWER::get),
-                    LazyOptional.of(CSAttributeRegistry.TECHNOMANCY_MAGIC_RESIST::get),
-                    LazyOptional.of(SoundRegistry.EVOCATION_CAST::get),
+                    CSAttributeRegistry.TECHNOMANCY_MAGIC_POWER::get,
+                    CSAttributeRegistry.TECHNOMANCY_MAGIC_RESIST::get,
+                    SoundRegistry.EVOCATION_CAST::get,
                     CSDamageTypes.TECHNOMANCY_MAGIC
             ));
 }

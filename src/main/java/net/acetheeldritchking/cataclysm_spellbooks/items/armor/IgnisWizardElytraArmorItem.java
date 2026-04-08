@@ -1,6 +1,5 @@
 package net.acetheeldritchking.cataclysm_spellbooks.items.armor;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;

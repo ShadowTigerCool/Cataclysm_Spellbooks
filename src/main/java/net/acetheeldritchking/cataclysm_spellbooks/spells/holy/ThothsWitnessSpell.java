@@ -1,6 +1,6 @@
 package net.acetheeldritchking.cataclysm_spellbooks.spells.holy;
 
-import com.github.L_Ender.cataclysm.client.particle.StormParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.StormParticleOptions;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModParticle;
 import com.github.L_Ender.cataclysm.init.ModSounds;
@@ -34,7 +34,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class ThothsWitnessSpell extends AbstractSummonSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "thoths_witness");
 
@@ -150,10 +149,10 @@ public class ThothsWitnessSpell extends AbstractSummonSpell {
         float g = 0.85F + entity.getRandom().nextFloat() * random;
         float b = 0.69F + entity.getRandom().nextFloat() * random * 1.5F;
 
-        MagicManager.spawnParticles(level, new StormParticle.OrbData(r, g, b, 2.75F + entity.getRandom().nextFloat() * 0.6F, 3.75F + entity.getRandom().nextFloat() * 0.6F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
-        MagicManager.spawnParticles(level, new StormParticle.OrbData(r, g, b, 2.5F + entity.getRandom().nextFloat() * 0.45F, 3.0F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
-        MagicManager.spawnParticles(level, new StormParticle.OrbData(r, g, b, 2.25F + entity.getRandom().nextFloat() * 0.45F, 2.25F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
-        MagicManager.spawnParticles(level, new StormParticle.OrbData(r, g, b, 1.25F + entity.getRandom().nextFloat() * 0.45F, 1.25F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
+        MagicManager.spawnParticles(level, new StormParticleOptions(r, g, b, 2.75F + entity.getRandom().nextFloat() * 0.6F, 3.75F + entity.getRandom().nextFloat() * 0.6F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
+        MagicManager.spawnParticles(level, new StormParticleOptions(r, g, b, 2.5F + entity.getRandom().nextFloat() * 0.45F, 3.0F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
+        MagicManager.spawnParticles(level, new StormParticleOptions(r, g, b, 2.25F + entity.getRandom().nextFloat() * 0.45F, 2.25F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
+        MagicManager.spawnParticles(level, new StormParticleOptions(r, g, b, 1.25F + entity.getRandom().nextFloat() * 0.45F, 1.25F + entity.getRandom().nextFloat() * 0.45F, entity.getId()), entity.getX(), entity.getY(), entity.getZ(), 1, 0, 0, 0, 1, true);
 
         if (entity.tickCount % 10 == 0) {
             // ring 1
@@ -209,7 +208,8 @@ public class ThothsWitnessSpell extends AbstractSummonSpell {
         double randomNearbyZ = vec.z + caster.getRandom().nextGaussian() * 1.5;
 
         var ancientRemnant = spawnHelper(randomNearbyX, caster.getY(), randomNearbyZ, caster, level, summonTimer, castData, () -> new PhantomAncientRemnant(level, caster));
-        ancientRemnant.setSleep(false);
+        ancientRemnant.setNecklace(true);
+        ancientRemnant.setAttackState(0);
 
         // Just for visuals
         EarthquakeAoe aoe = new EarthquakeAoe(level);

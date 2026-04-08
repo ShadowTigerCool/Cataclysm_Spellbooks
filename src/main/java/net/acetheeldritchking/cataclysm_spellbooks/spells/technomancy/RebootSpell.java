@@ -21,7 +21,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class RebootSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "reboot");
 

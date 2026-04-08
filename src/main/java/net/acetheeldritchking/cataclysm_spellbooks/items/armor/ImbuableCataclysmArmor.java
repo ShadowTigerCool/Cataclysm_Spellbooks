@@ -20,8 +20,7 @@ public class ImbuableCataclysmArmor extends CSArmorItem implements IPresetSpellC
             if (armorItem.getType() == Type.CHESTPLATE || armorItem.getType() == Type.HELMET)
             {
                 if (!ISpellContainer.isSpellContainer(itemStack)) {
-                    var spellContainer = ISpellContainer.create(1, true, true);
-                    spellContainer.save(itemStack);
+                    ISpellContainer.set(itemStack, ISpellContainer.create(1, true, true));
                 }
             }
         }

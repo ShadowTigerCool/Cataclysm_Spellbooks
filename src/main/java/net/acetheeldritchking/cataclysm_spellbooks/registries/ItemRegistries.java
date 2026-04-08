@@ -1,6 +1,5 @@
 package net.acetheeldritchking.cataclysm_spellbooks.registries;
 
-import com.google.common.collect.ImmutableMultimap;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
@@ -38,8 +37,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.UUID;
 
 public class ItemRegistries {
     public static final DeferredRegister<Item> ITEMS =
@@ -89,11 +86,7 @@ public class ItemRegistries {
     // Coral Staff
     public static final RegistryObject<Item> CORAL_STAFF = ITEMS.register
             ("coral_staff", () -> new StaffItem
-                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), 3, -3,
-                            Map.of(
-                                    CSAttributeRegistry.ABYSSAL_MAGIC_POWER.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.COOLDOWN_REDUCTION.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE)
-                            )));
+                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), CSStaffTiers.CORAL));
 
     // Fake Wadjets Staff
     public static final RegistryObject<Item> FAKE_WUDJETS_STAFF = ITEMS.register
@@ -102,11 +95,7 @@ public class ItemRegistries {
     // Void Staff
     public static final RegistryObject<Item> VOID_STAFF = ITEMS.register
             ("void_staff", () -> new StaffItem
-                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), 3, -3,
-                            Map.of(
-                                    AttributeRegistry.ENDER_SPELL_POWER.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.COOLDOWN_REDUCTION.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE)
-                            )));
+                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), CSStaffTiers.VOID));
 
     // Spirit Sunderer Staff
     public static final RegistryObject<Item> SPIRIT_SUNDERER_STAFF = ITEMS.register
@@ -124,22 +113,12 @@ public class ItemRegistries {
     // Engineer's Power Glove
     public static final RegistryObject<Item> ENGINEERS_POWER_GLOVE = ITEMS.register
             ("engineers_power_glove", () -> new StaffItem
-                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.UNCOMMON), 1.5, -1.7,
-                            Map.of(
-                                    CSAttributeRegistry.TECHNOMANCY_MAGIC_POWER.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.COOLDOWN_REDUCTION.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE)
-                            )));
+                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.UNCOMMON), CSStaffTiers.ENGINEERS_POWER_GLOVE));
 
     // Soul Brazier Staff
     public static final RegistryObject<Item> SOUL_BRAZIER_STAFF = ITEMS.register
             ("soul_brazier", () -> new StaffItem
-                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), 4, -3,
-                            Map.of(
-                                    AttributeRegistry.ICE_SPELL_POWER.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .15, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.MANA_REGEN.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.COOLDOWN_REDUCTION.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .25, AttributeModifier.Operation.MULTIPLY_BASE),
-                                    AttributeRegistry.CAST_TIME_REDUCTION.get(), new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE)
-                            )));
+                    (ItemPropertiesHelper.equipment().stacksTo(1).rarity(Rarity.EPIC), CSStaffTiers.SOUL_BRAZIER));
 
     // The Nightstalker
     public static final RegistryObject<Item> THE_NIGHTSTALKER = ITEMS.register

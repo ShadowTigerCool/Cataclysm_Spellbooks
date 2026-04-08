@@ -16,7 +16,6 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Timer;
 import java.util.TimerTask;
 
-@AutoSpellConfig
 public class CometShowerSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "comet_shower");
 

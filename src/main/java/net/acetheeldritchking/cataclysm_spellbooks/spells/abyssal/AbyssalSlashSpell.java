@@ -33,7 +33,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class AbyssalSlashSpell extends AbstractAbyssalSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "abyssal_slash");
 
@@ -139,7 +138,7 @@ public class AbyssalSlashSpell extends AbstractAbyssalSpell {
                 }
             }
         }
-        CameraShakeManager.addCameraShake(new CameraShakeData(10, entity.position(), 10));
+        CameraShakeManager.addCameraShake(new CameraShakeData(level, 10, entity.position(), 10f));
 
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }

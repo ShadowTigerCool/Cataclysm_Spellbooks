@@ -1,6 +1,6 @@
 package net.acetheeldritchking.cataclysm_spellbooks.entity.spells.parting_shot;
 
-import com.github.L_Ender.cataclysm.client.particle.TrackLightningParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.TrackLightningParticleOptions;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
@@ -56,7 +56,7 @@ public class PartingShotProjectile extends AbstractMagicProjectile implements Ge
     @Override
     public void trailParticles() {
         Vec3 vec3 = this.position().subtract(getDeltaMovement());
-        this.level().addParticle(new TrackLightningParticle.OrbData(232, 59, 59), vec3.x, vec3.y, vec3.z, vec3.x, vec3.y, vec3.z);
+        this.level().addParticle(new TrackLightningParticleOptions(232, 59, 59), vec3.x, vec3.y, vec3.z, vec3.x, vec3.y, vec3.z);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class PartingShotProjectile extends AbstractMagicProjectile implements Ge
 
         //this.level.addParticle(new TrackLightningParticle.OrbData(255, 6, 62), arcVec.x, arcVec.y, arcVec.z, 0, 0, 0);
 
-        this.level().addParticle(new TrackLightningParticle.OrbData(232, 59, 59), center.x, center.y, center.z, arcVec.x, arcVec.y, arcVec.z);
+        this.level().addParticle(new TrackLightningParticleOptions(232, 59, 59), center.x, center.y, center.z, arcVec.x, arcVec.y, arcVec.z);
 
         super.tick();
     }

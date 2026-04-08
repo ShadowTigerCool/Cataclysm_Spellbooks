@@ -1,6 +1,6 @@
 package net.acetheeldritchking.cataclysm_spellbooks.entity.render.mobs;
 
-import com.github.L_Ender.cataclysm.client.render.entity.Ancient_Remnant_Rework_Renderer;
+import com.github.L_Ender.cataclysm.client.render.entity.Ancient_Remnant_Renderer;
 import com.github.L_Ender.cataclysm.client.render.layer.Ancient_Remnant_Layer;
 import com.github.L_Ender.cataclysm.entity.InternalAnimationMonster.IABossMonsters.Ancient_Remnant.Ancient_Remnant_Entity;
 import net.acetheeldritchking.cataclysm_spellbooks.CataclysmSpellbooks;
@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class PhantomAncientRemnantRenderer extends Ancient_Remnant_Rework_Renderer {
+public class PhantomAncientRemnantRenderer extends Ancient_Remnant_Renderer {
     private static final ResourceLocation REMNANT_TEXTURES = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "textures/entity/ancient_remnant/ancient_remnant_rag.png");
     private final RandomSource rnd = RandomSource.create();
 

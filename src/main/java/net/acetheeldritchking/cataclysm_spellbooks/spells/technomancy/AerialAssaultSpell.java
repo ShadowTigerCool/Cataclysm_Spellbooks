@@ -23,7 +23,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class AerialAssaultSpell extends AbstractHarbingerSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "aerial_assault");
 
@@ -127,7 +126,18 @@ public class AerialAssaultSpell extends AbstractHarbingerSpell {
 
         float d2 = -Mth.sin(d * ((float) Math.PI / 180F));
 
-        Wither_Missile_Entity missile = new Wither_Missile_Entity(ModEntities.WITHER_MISSILE.get(), caster, spawn.add(offset).x, spawn.add(offset).y,  spawn.add(offset).z, 0, d2, 0, getDamage(spellLevel, caster), level);
+        Vec3 launch = spawn.add(offset);
+        Vec3 motion = new Vec3(0.0, d2, 0.0);
+        Wither_Missile_Entity missile = new Wither_Missile_Entity(
+                ModEntities.WITHER_MISSILE.get(),
+                caster,
+                launch.x,
+                launch.y,
+                launch.z,
+                motion,
+                getDamage(spellLevel, caster),
+                level
+        );
 
         level.addFreshEntity(missile);
     }

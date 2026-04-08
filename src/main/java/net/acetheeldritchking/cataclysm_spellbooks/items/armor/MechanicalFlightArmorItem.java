@@ -2,8 +2,7 @@ package net.acetheeldritchking.cataclysm_spellbooks.items.armor;
 
 import com.github.L_Ender.cataclysm.Cataclysm;
 import com.github.L_Ender.cataclysm.client.particle.RingParticle;
-import com.github.L_Ender.cataclysm.client.particle.TrackLightningParticle;
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.client.particle.Options.RingParticleOptions;
 import com.github.L_Ender.cataclysm.init.ModKeybind;
 import com.github.L_Ender.cataclysm.items.KeybindUsingArmor;
 import com.github.L_Ender.cataclysm.message.MessageArmorKey;
@@ -360,8 +359,13 @@ public class MechanicalFlightArmorItem extends ImbuableCataclysmArmor implements
                     float yaw2 = (float) Math.toRadians(-player.getYRot() + 180);
                     float pitch = (float) Math.toRadians(-player.getXRot());
 
-                    player.level().addParticle(new RingParticle.RingData(yaw, pitch, 55, 0.80f, 0.4f, 0.0f, 1.0f, 50f, false, RingParticle.EnumRingBehavior.GROW_THEN_SHRINK), x, y, z, 0, 0, 0);
-                    player.level().addParticle(new RingParticle.RingData(yaw2, pitch, 55, 0.80f, 0.4f, 0.0f, 1.0f, 50f, false, RingParticle.EnumRingBehavior.GROW_THEN_SHRINK), x, y, z, 0, 0, 0);
+                    // RingParticleOptions takes RGB as 0–255 ints; convert legacy 0–1 float components from the old RingData API.
+                    int rr = Math.round(0.80f * 255.0f);
+                    int gg = Math.round(0.4f * 255.0f);
+                    int bb = 0;
+                    int ringBehavior = RingParticle.EnumRingBehavior.GROW_THEN_SHRINK.ordinal();
+                    player.level().addParticle(new RingParticleOptions(yaw, pitch, 55, rr, gg, bb, 1.0f, 50f, false, ringBehavior), x, y, z, 0, 0, 0);
+                    player.level().addParticle(new RingParticleOptions(yaw2, pitch, 55, rr, gg, bb, 1.0f, 50f, false, ringBehavior), x, y, z, 0, 0, 0);
 
                     player.level().playSound(player, player.blockPosition(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.PLAYERS, 0.55F, 1);
                 }

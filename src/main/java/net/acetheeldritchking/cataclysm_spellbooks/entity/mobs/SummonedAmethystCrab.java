@@ -1,7 +1,6 @@
 package net.acetheeldritchking.cataclysm_spellbooks.entity.mobs;
 
 import com.github.L_Ender.cataclysm.entity.AnimationMonster.BossMonsters.Amethyst_Crab_Entity;
-import io.redspace.ironsspellbooks.api.spells.AutoSpellConfig;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
@@ -29,7 +28,6 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-@AutoSpellConfig
 public class SummonedAmethystCrab extends Amethyst_Crab_Entity implements IMagicSummon {
     public SummonedAmethystCrab(EntityType entity, Level world) {
         super(entity, world);

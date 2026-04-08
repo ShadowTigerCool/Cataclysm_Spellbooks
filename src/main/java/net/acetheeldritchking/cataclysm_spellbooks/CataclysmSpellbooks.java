@@ -19,7 +19,6 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -36,9 +35,9 @@ public class CataclysmSpellbooks
     public static final String MOD_ID = "cataclysm_spellbooks";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public CataclysmSpellbooks()
+    public CataclysmSpellbooks(FMLJavaModLoadingContext context)
     {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = context.getModEventBus();
 
         // Event Handlers
         MinecraftForge.EVENT_BUS.register(new ServerEvents());
@@ -64,7 +63,7 @@ public class CataclysmSpellbooks
         CSSoundRegistry.register(modEventBus);
 
         // Config
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CSConfig.SPEC, "cataclysm_spellbooks_config.toml");
+        context.registerConfig(ModConfig.Type.COMMON, CSConfig.SPEC, "cataclysm_spellbooks_config.toml");
 
         //modEventBus.addListener(this::commonSetup);
 

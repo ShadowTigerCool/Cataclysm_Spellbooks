@@ -7,29 +7,33 @@ import net.minecraft.resources.ResourceLocation;
 public class CSSpellAnimations {
     public static ResourceLocation ANIMATION_RESOURCE = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "animation");
 
-    public static final AnimationHolder ANIMATION_MALEVOLENT_HAND_SIGN = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":malevolent_hand_sign", true);
+    private static AnimationHolder playerAnim(String path, boolean playOnce) {
+        return new AnimationHolder(ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, path), playOnce);
+    }
 
-    public static final AnimationHolder ANIMATION_CHARGE_GUN = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":charge_gun", true);
+    public static final AnimationHolder ANIMATION_MALEVOLENT_HAND_SIGN = playerAnim("malevolent_hand_sign", true);
 
-    public static final AnimationHolder ANIMATION_CHARGE_GUN_RELEASE = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":charged_gun_release", true);
+    public static final AnimationHolder ANIMATION_CHARGE_GUN = playerAnim("charge_gun", true);
 
-    public static final AnimationHolder ANIMATION_CHARGE_GUN_FULL = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":full_gun_shoot", true);
+    public static final AnimationHolder ANIMATION_CHARGE_GUN_RELEASE = playerAnim("charged_gun_release", true);
 
-    public static final AnimationHolder ANIMATION_SIMPLE_SHOOT = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":simple_shoot", true);
+    public static final AnimationHolder ANIMATION_CHARGE_GUN_FULL = playerAnim("full_gun_shoot", true);
 
-    public static final AnimationHolder ANIMATION_CHARGED_GROUND_SLAM = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":charged_ground_slam", true);
+    public static final AnimationHolder ANIMATION_SIMPLE_SHOOT = playerAnim("simple_shoot", true);
 
-    public static final AnimationHolder ANIMATION_CONSTRUCT_SUMMON = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":construct_summon", true);
+    public static final AnimationHolder ANIMATION_CHARGED_GROUND_SLAM = playerAnim("charged_ground_slam", true);
 
-    public static final AnimationHolder ANIMATION_WRATH_ROAR = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":wrathful_roar", true);
+    public static final AnimationHolder ANIMATION_CONSTRUCT_SUMMON = playerAnim("construct_summon", true);
 
-    public static final AnimationHolder ANIMATION_DEFENSIVE_SWORD_STANCE_START = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":sword_stance_start", true);
+    public static final AnimationHolder ANIMATION_WRATH_ROAR = playerAnim("wrathful_roar", true);
 
-    public static final AnimationHolder ANIMATION_DEFENSIVE_SWORD_STANCE_FINISH = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":sword_stance_finish", true);
+    public static final AnimationHolder ANIMATION_DEFENSIVE_SWORD_STANCE_START = playerAnim("sword_stance_start", true);
 
-    public static final AnimationHolder ANIMATION_POWERFUL_SWORD_SLASH = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":powerful_sword_slash", true);
+    public static final AnimationHolder ANIMATION_DEFENSIVE_SWORD_STANCE_FINISH = playerAnim("sword_stance_finish", true);
 
-    public static final AnimationHolder ANIMATION_RIGHT_HORIZONTAL_SLASH = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":right_horizontal_slash_one_handed", true);
+    public static final AnimationHolder ANIMATION_POWERFUL_SWORD_SLASH = playerAnim("powerful_sword_slash", true);
 
-    public static final AnimationHolder ANIMATION_LEFT_HORIZONTAL_SLASH = new AnimationHolder(CataclysmSpellbooks.MOD_ID + ":left_horizontal_slash_one_handed", true);
+    public static final AnimationHolder ANIMATION_RIGHT_HORIZONTAL_SLASH = playerAnim("right_horizontal_slash_one_handed", true);
+
+    public static final AnimationHolder ANIMATION_LEFT_HORIZONTAL_SLASH = playerAnim("left_horizontal_slash_one_handed", true);
 }

@@ -23,7 +23,6 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class DimensionalRiftSpell extends AbstractAbyssalSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "dimensional_rift");
 
@@ -94,7 +93,7 @@ public class DimensionalRiftSpell extends AbstractAbyssalSpell {
         dimensionalRift.setLifespan(getRiftLifespan(spellLevel, entity));
 
         dimensionalRift.moveTo(dimensionRiftLocation);
-        CameraShakeManager.addCameraShake(new CameraShakeData(25, entity.position(), 25));
+        CameraShakeManager.addCameraShake(new CameraShakeData(casterLevel, 25, entity.position(), 25f));
         if (!casterLevel.isClientSide)
         {
             level.addFreshEntity(dimensionalRift);

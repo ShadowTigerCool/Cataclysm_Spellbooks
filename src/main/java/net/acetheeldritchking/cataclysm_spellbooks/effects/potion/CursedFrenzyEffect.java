@@ -1,6 +1,7 @@
 package net.acetheeldritchking.cataclysm_spellbooks.effects.potion;
 
 import com.github.L_Ender.cataclysm.client.particle.RingParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.RingParticleOptions;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import net.acetheeldritchking.cataclysm_spellbooks.registries.SpellRegistries;
 import net.minecraft.world.effect.MobEffect;
@@ -48,8 +49,13 @@ public class CursedFrenzyEffect extends MobEffect {
                 float yaw = (float) Math.toRadians(-pLivingEntity.getYRot());
                 float yaw2 = (float) Math.toRadians(-pLivingEntity.getYRot() + 180);
                 float pitch = (float) Math.toRadians(-pLivingEntity.getXRot());
-                pLivingEntity.level().addParticle(new RingParticle.RingData(yaw, pitch, 40, 0.337f, 0.925f, 0.8f, 1.0f, 50f, false, RingParticle.EnumRingBehavior.GROW_THEN_SHRINK), x, y, z, 0, 0, 0);
-                pLivingEntity.level().addParticle(new RingParticle.RingData(yaw2, pitch, 40, 0.337f, 0.925f, 0.8f, 1.0f, 50f, false, RingParticle.EnumRingBehavior.GROW_THEN_SHRINK), x, y, z, 0, 0, 0);
+                // RingParticleOptions takes RGB as 0–255 ints; convert legacy 0–1 float components from the old RingData API.
+                int r = Math.round(0.337f * 255.0f);
+                int g = Math.round(0.925f * 255.0f);
+                int b = Math.round(0.8f * 255.0f);
+                int ringBehavior = RingParticle.EnumRingBehavior.GROW_THEN_SHRINK.ordinal();
+                pLivingEntity.level().addParticle(new RingParticleOptions(yaw, pitch, 40, r, g, b, 1.0f, 50f, false, ringBehavior), x, y, z, 0, 0, 0);
+                pLivingEntity.level().addParticle(new RingParticleOptions(yaw2, pitch, 40, r, g, b, 1.0f, 50f, false, ringBehavior), x, y, z, 0, 0, 0);
             }
         }
     }

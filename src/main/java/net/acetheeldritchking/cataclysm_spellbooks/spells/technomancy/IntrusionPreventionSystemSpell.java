@@ -2,7 +2,6 @@ package net.acetheeldritchking.cataclysm_spellbooks.spells.technomancy;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.api.spells.AutoSpellConfig;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
@@ -28,7 +27,6 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@AutoSpellConfig
 public class IntrusionPreventionSystemSpell extends AbstractHarbingerSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(CataclysmSpellbooks.MOD_ID, "intrusion_prevention_system");
     private static final int MAX_TARGETS = 8;

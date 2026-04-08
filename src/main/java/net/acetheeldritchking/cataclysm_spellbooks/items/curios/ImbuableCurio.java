@@ -41,9 +41,9 @@ public class ImbuableCurio extends SimpleDescriptiveCurio implements IPresetSpel
 
         if (!ISpellContainer.isSpellContainer(itemStack)) {
             var spells = getSpells();
-            var spellContainer = ISpellContainer.create(spells.size(), true, false);
-            spells.forEach(spellData -> spellContainer.addSpell(spellData.getSpell(), spellData.getLevel(), true, null));
-            spellContainer.save(itemStack);
+            var spellContainer = ISpellContainer.create(spells.size(), true, false).mutableCopy();
+            spells.forEach(spellData -> spellContainer.addSpell(spellData.getSpell(), spellData.getLevel(), true));
+            ISpellContainer.set(itemStack, spellContainer.toImmutable());
         }
     }
 }

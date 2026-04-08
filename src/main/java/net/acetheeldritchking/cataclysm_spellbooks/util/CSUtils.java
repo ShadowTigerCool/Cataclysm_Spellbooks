@@ -296,7 +296,10 @@ public class CSUtils {
     // Gets equipped curio on the player
     public static boolean hasCurio(Player player, Item item)
     {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(item, player).isPresent();
+        return CuriosApi.getCuriosInventory(player)
+                .resolve()
+                .map(handler -> handler.isEquipped(item))
+                .orElse(false);
     }
 
     // Backported from Ace's Spell Utils

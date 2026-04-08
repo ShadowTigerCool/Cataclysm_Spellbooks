@@ -1,6 +1,6 @@
 package net.acetheeldritchking.cataclysm_spellbooks.entity.spells.bullets;
 
-import com.github.L_Ender.cataclysm.client.particle.LightTrailParticle;
+import com.github.L_Ender.cataclysm.client.particle.Options.LightTrailParticleOptions;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModParticle;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
@@ -101,7 +101,7 @@ public class MoltenBulletProjectile extends AbstractMagicProjectile implements G
             float g = 95/255F + this.random.nextFloat() * random;
             float b = 3/255F + this.random.nextFloat() * random;
 
-            this.level().addParticle(new LightTrailParticle.OrbData(r, g, b, 0.1F, this.getBbHeight()/2, this.getId()), x, y, z, 0, 0, 0);
+            this.level().addParticle(new LightTrailParticleOptions(r, g, b, 0.1F, this.getBbHeight() / 2, this.getId()), x, y, z, 0, 0, 0);
         }
 
         super.tick();
