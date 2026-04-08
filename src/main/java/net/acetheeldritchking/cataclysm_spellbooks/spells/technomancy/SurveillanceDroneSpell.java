@@ -63,7 +63,8 @@ public class SurveillanceDroneSpell extends AbstractSpell {
 
     @Override
     public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
-        return Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .35f);
+        return Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .35f, true,
+                target -> target instanceof IMagicSummon);
     }
 
     @Override
